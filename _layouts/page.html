@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<div class="pure-u-1">
+	<div class="post">
+		<div class="post-header">
+			{% if page.title %}
+				<h2 class="post-title">{{ page.title }}</h2>
+			{% endif %}
+		</div>
+		<div class="post-description">
+		{{ content }}
+		</div>
+	</div>
+</div>

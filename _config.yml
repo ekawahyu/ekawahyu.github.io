@@ -1,0 +1,7 @@
+name: Aisenlink
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:day/:title.html
+
+paginate: 5
+paginate_path: "/allposts/page:num/"

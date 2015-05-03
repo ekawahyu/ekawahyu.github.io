@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% if page.title %}
+	<title>{{ page.title }}</title>
+	{% else %}
+	<title>{{ site.name }}</title>
+	{% endif %}
+	<link rel="stylesheet" href="/css/pure-min.css">
+	<link rel="stylesheet" href="/css/blog.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+</head>
+<body>
+<div class="pure-g-r" id="layout">
+	<div class="sidebar pure-u-1">
+		<div class="header">
+			<hgroup class="a-plain"><a href="/about.html">
+				<img src="/images/bocian-owl-notebook.png" width="90px" height="90px" />
+				<h1 class="brand-title">{{ site.name }}</h1>
+				<h2 class="brand-tagline">Tinker-Hack Things</h2></a>
+				<br>
+				<span class="fa fa-link" aria-hidden="true">
+				<a href="/allposts"><span class="label label-warning">All</span></a>
+				<a href="/index.html"><span class="label label-warning">Recent</span></a>
+				<br><br>
+				<span class="fa fa-tag" aria-hidden="true">
+				{% for tag in site.tags %}
+				<a href="/tag/{{ tag[0] }}"><span class="label label-info">{{ tag[0] }}</span></a>
+				{% endfor %}
+			</hgroup>
+		</div>
+	</div>
+	<div class="content content-min-height">
+	{{ content }}
+	</div>
+	<div class="content">
+		<div class="pure-u-1">
+			<div class="footer">
+				<p><a href="/">&copy 2015 {{ site.name }}</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

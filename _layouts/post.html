@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="pure-u-1">
+	<div class="post">
+		<h1 class="content-subhead">Read Post</h1>
+		<div class = "post-header">
+			<!--<img class="post-avatar" height="48" width="48" src="/avatar/{{ page.author }}.jpg" />-->
+			<h2 class="post-title">{{ page.title }}</h2>
+			<p class="post-meta">
+				<span class="fa fa-calendar" aria-hidden="true"></span>
+				{{ page.date | date:"%Y-%m-%d" }}
+				<br>
+				<span class="fa fa-tag" aria-hidden="true"></span>
+				{% for tag in page.tags %}
+				<a href="/tag/{{ tag }}"><span class="label label-info">{{ tag }}</span></a>
+				{% endfor %}
+			</p>
+		</div>
+		<div class="post-description">
+		{{ content }}
+		</div>
+	</div>
+</div>
+{% if page.previous or page.next %}
+<div class="post">
+	{% if page.previous %}
+	<a href='{{page.previous.url}}'>← Prev</a>
+	{% endif %}
+	{% if page.next %}
+	<a href='{{page.next.url}}'>Next →</a>
+	{% endif %}
+</div>
+{% endif %}
