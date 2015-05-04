@@ -23,4 +23,4 @@ cp -r _site/tag .
 jekyll serve
 </pre>
 
-It is put at root directory. It deletes `tag` folder before build, then copy a new one from `_site` folder, and starting Jekyll local server service. That easy! I guess this workaround will stay until the Github Pages' policy is changed one day (or never). 
+The script should be put at root directory. It deletes recursively `tag` folder before build, copy a new one from `_site` folder, and then starting Jekyll local service. That easy! I guess this workaround will stay, until one day the Github Pages' policy is changed (or never).
