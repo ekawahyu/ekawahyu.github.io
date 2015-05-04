@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{% if page.title %}
-	<title>{{ page.title }}</title>
+	<title>{{ site.name }} - {{ page.title }}</title>
 	{% else %}
 	<title>{{ site.name }}</title>
 	{% endif %}
 	<link rel="stylesheet" href="/css/pure-min.css">
 	<link rel="stylesheet" href="/css/blog.css">
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/images/favicon.ico">
 </head>
 <body>
 <div class="pure-g-r" id="layout">
@@ -19,7 +20,8 @@
 			<hgroup class="a-plain"><a href="/about.html">
 				<img src="/images/bocian-owl-notebook.png" width="90px" height="90px" />
 				<h1 class="brand-title">{{ site.name }}</h1>
-				<h2 class="brand-tagline">Tinker-Hack Things</h2></a>
+				<h2 class="brand-title">艾森林</h2>
+				<h2 class="brand-tagline">The Connected Things</h2></a>
 				<br>
 				<span class="fa fa-link" aria-hidden="true">
 				<a href="/allposts"><span class="label label-warning">All</span></a>
@@ -38,7 +40,7 @@
 	<div class="content">
 		<div class="pure-u-1">
 			<div class="footer">
-				<p><a href="/">&copy 2015 {{ site.name }}</a></p>
+				<p><a href="/">&copy 2009-2015 {{ site.name }} 艾森林</a></p>
 			</div>
 		</div>
 	</div>

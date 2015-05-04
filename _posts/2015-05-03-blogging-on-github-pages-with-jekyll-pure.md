@@ -4,8 +4,7 @@ title:  Blogging on Github Pages with Jekyll-Pure
 author: eka
 tags:
 - Github Pages
-- Jekyll
-- Pure CSS
+- Jekyll Pure
 ---
 
 There are a lot of blogging platforms and website hosting services our there. But the true advantage of having your blog hosted on Github Pages is ... (drum roll, please)... it's **FREE**! The only thing you need to pay is a custom domain name registration, or you can just stay with github.io subdomain: `http://<accountname>.github.io`
@@ -24,4 +23,4 @@ Here is a list of things you might want to learn in order to roll out your own G
 4. Learn how to use HTML and CSS ( [www.w3schools.com/html/html_css.asp](www.w3schools.com/html/html_css.asp) )
 5. Learn how to deal with Markdown ( [http://daringfireball.net/projects/markdown/](http://daringfireball.net/projects/markdown/) )
 
-Aisenlink's blog was created with (highly modified) Jekyll-Pure. However, Jekyll-Bootstrap is recommended for most beginners. [Pure CSS](http://purecss.io/) is a lightweight CSS model, created by [Yahoo! Inc](http://www.yahoo.com), with tiny footprint to target web project developers. Feel free to [fork](https://github.com/ekawahyu/ekawahyu.github.io) our website as you like. It's still a work in progress though, so please report any bugs you may find and contribute back to us. Stay tuned for more tutorials...
+Aisenlink's blog was created with (highly modified) Jekyll-Pure. [Pure CSS](http://purecss.io/) is a lightweight CSS model, created by [Yahoo! Inc](http://www.yahoo.com), with tiny footprint to target web project developers. Feel free to [fork](https://github.com/ekawahyu/ekawahyu.github.io) our website as you like. It's still a work in progress though, so please report any bugs you may find and contribute back to us. Stay tuned for more hacks and tutorials...

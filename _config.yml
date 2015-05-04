@@ -1,4 +1,4 @@
-name: Aisenlink
+name: AisenLink
 markdown: rdiscount
 pygments: true
 permalink: /:year/:month/:day/:title.html
