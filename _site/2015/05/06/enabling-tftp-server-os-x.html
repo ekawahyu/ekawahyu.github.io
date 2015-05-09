@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>AisenLink - Enabling TFTP Server on Mac OS X Yosemite</title>
+	
+	<link rel="stylesheet" href="/css/pure-min.css">
+	<link rel="stylesheet" href="/css/blog.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+<body>
+<div class="pure-g-r" id="layout">
+	<div class="sidebar pure-u-1">
+		<div class="header">
+			<hgroup class="a-plain"><a href="/about.html">
+				<img src="/images/bocian-owl-notebook.png" width="90px" height="90px" />
+				<h1 class="brand-title">AisenLink</h1>
+				<h2 class="brand-title">艾森林</h2>
+				<h2 class="brand-tagline">The Connected Things</h2></a>
+				<br>
+				<span class="fa fa-link" aria-hidden="true">
+				<a href="/allposts"><span class="label label-warning">All</span></a>
+				<a href="/index.html"><span class="label label-warning">Recent</span></a>
+				<br><br>
+				<span class="fa fa-tag" aria-hidden="true">
+				
+				<a href="/tag/Github Pages"><span class="label label-info">Github Pages</span></a>
+				
+				<a href="/tag/Jekyll Pure"><span class="label label-info">Jekyll Pure</span></a>
+				
+				<a href="/tag/Tag Generator"><span class="label label-info">Tag Generator</span></a>
+				
+				<a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
+				
+				<a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
+				
+				<a href="/tag/ONT"><span class="label label-info">ONT</span></a>
+				
+				<a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+				
+				<a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
+				
+				<a href="/tag/TFTP Server"><span class="label label-info">TFTP Server</span></a>
+				
+				<a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
+				
+			</hgroup>
+		</div>
+	</div>
+	<div class="content content-min-height">
+	<div class="pure-u-1">
+	<div class="post">
+		<h1 class="content-subhead">Read Post</h1>
+		<div class = "post-header">
+			<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+			<h2 class="post-title">Enabling TFTP Server on Mac OS X Yosemite</h2>
+			<p class="post-meta">
+				<span class="fa fa-calendar" aria-hidden="true"></span>
+				2015-05-06
+				<br>
+				<span class="fa fa-tag" aria-hidden="true"></span>
+				
+				<a href="/tag/TFTP Server"><span class="label label-info">TFTP Server</span></a>
+				
+				<a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
+				
+			</p>
+		</div>
+		<div class="post-description">
+		<p>Based on article posted by mlc: <a href="http://hints.macworld.com/article.php?story=20070218233806794">http://hints.macworld.com/article.php?story=20070218233806794</a></p>
+
+<p>Many network devices are able to upload and download firmware and configurations via the TFTP protocol. Intel based Mac OS X comes with tftpd preinstalled. On OS X Server, tftpd service is running, but on standard OS X, it is disabled by default. However, it can be activated. In order to activate a service, you have to be administrator with <code>sudo</code> privilege.</p>
+
+<!--more-->
+
+
+<p>Since Mac OS X Tiger, most services that were previously configured using xinetd have been migrated to launchd. The new launchd service consults the settings located in <code>/System/Library/LaunchDaemons</code> and <code>/Library/LaunchDaemons</code> directories. By default, Yosemite has tftp.plist installed, however, this should be modified to suit your needs.</p>
+
+<p>First, back up the default tftp.plist as below:</p>
+
+<pre><code>cp /System/Library/LaunchDaemons/tftp.plist ~/Desktop/tftp.plist</code></pre>
+
+
+<p>The tftp.plist includes only one program argument: <code>-i</code>. This flag prohibits usage with realpath, which will translate relative links to a full path. I would recommend using this as well as the <code>-s</code> flag, which essentially chroots the environment. The entire contents of this modified file is as follows:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" 
+        "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;InitGroups&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.apple.tftpd&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/usr/libexec/tftpd&lt;/string&gt;
+        &lt;string&gt;-i&lt;/string&gt;
+        &lt;string&gt;-s&lt;/string&gt;
+        &lt;string&gt;/private/tftpboot&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;Sockets&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;Listeners&lt;/key&gt;
+        &lt;dict&gt;
+            &lt;key&gt;SockServiceName&lt;/key&gt;
+            &lt;string&gt;tftp&lt;/string&gt;
+            &lt;key&gt;SockType&lt;/key&gt;
+            &lt;string&gt;dgram&lt;/string&gt;
+        &lt;/dict&gt;
+    &lt;/dict&gt;
+    &lt;key&gt;inetdCompatibility&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;Wait&lt;/key&gt;
+        &lt;true/&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+
+<p>You may also wish to add the <code>-l</code> flag in the <code>ProgramArguments</code> block to enable logging requests to syslog. Consult the <code>man tftpd</code> pages for additional arguments. In Yosemite, the <code>/private/tftpboot</code> directory already exists, so no other changes are necessary. The service may be started with the following command:</p>
+
+<pre><code>&#36; sudo launchctl load -w /System/Library/LaunchDaemons/tftp.plist</code></pre>
+
+
+<p>And stopped with:</p>
+
+<pre><code>sudo launchctl unload -w /System/Library/LaunchDaemons/tftp.plist</code></pre>
+
+
+<p>You may also wish to add the <code>-l</code> flag in the <code>ProgramArguments</code> block to enable logging requests to syslog. Consult the tftpd man pages for additional arguments.</p>
+
+<p>The TFTP protocol allows any user to read and write to files on your system, so keep this in mind when choosing the storage directory. As a minimal security measure, the files must already exist before writing to them, and must have write access by all users. In general usage, I will store firmware upgrades with read-only access. When capturing someone's firmware configuration, I then perform the following:</p>
+
+<pre><code>$ cd /private/tftpboot
+$ sudo touch test.txt
+$ sudo chmod 666 test.txt</code></pre>
+
+
+<p>At this point, you're ready to start using the service to store configurations as needed. For testing, you can perform the following:</p>
+
+<pre><code>$ cd ~/Desktop
+$ echo "THIS IS A TEST" > test.txt
+$ tftp localhost</code></pre>
+
+
+<p>This will open a tftp connection and switch to an interactive tftp session. Now perform the following:</p>
+
+<pre><code>tftp>verbose
+tftp>put test.txt
+tftp>quit</code></pre>
+
+
+<p>If there are no errors returned, all is working correctly. If not, check your firewall settings to ensure that UDP port 69 is open. Other issues may be due to syntax errors in the tftp.plist file. Check also <code>/private/tftpboot/test.txt</code>, it should be overwritten by <code>THIS IS A TEST</code>.</p>
+
+		</div>
+	</div>
+</div>
+
+<div class="post">
+	
+	<a href='/2015/05/05/a-look-into-huawei-hg8245-ont.html'>← Prev</a>
+	
+	
+</div>
+
+
+	</div>
+	<div class="content">
+		<div class="pure-u-1">
+			<div class="footer">
+				<p><a href="/">&copy 2009-2015 AisenLink 艾森林</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
