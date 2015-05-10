@@ -9,7 +9,7 @@ tags:
 - Wifi Router
 ---
 
-Hackers are very unlikely to break in to SOHO network from serial port, like in [this post](2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html). This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.
+Hackers are very unlikely to break in to SOHO network from serial port, like in [this post](/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html). This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.
 
 The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.
 
