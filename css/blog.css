@@ -172,6 +172,8 @@ pre code {
     bottom: 0;
     width: 28%;
     margin-left: -28%;
+    padding-left: 15px;
+    padding-right: 15px;
     background: rgb(24, 33, 61);
     color: #fff;
 }
