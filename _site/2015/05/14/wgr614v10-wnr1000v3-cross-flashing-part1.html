@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>AisenLink - WGR614v10 and WNR1000v3 Cross-Flashing Firmware Update - part 1</title>
+	
+	<link rel="stylesheet" href="/css/pure-min.css">
+	<link rel="stylesheet" href="/css/blog.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+<body>
+<div class="pure-g-r" id="layout">
+	<div class="sidebar pure-u-1">
+		<div class="header">
+			<hgroup class="a-plain"><a href="/about.html">
+				<img src="/images/bocian-owl-notebook.png" width="90px" height="90px" />
+				<h1 class="brand-title">AisenLink</h1>
+				<h2 class="brand-title">艾森林</h2>
+				<h2 class="brand-tagline">The Connected Things</h2></a>
+				<br>
+				<span class="fa fa-link" aria-hidden="true">
+				<a href="/allposts"><span class="label label-warning">All</span></a>
+				<a href="/index.html"><span class="label label-warning">Recent</span></a>
+				<br><br>
+				<span class="fa fa-tag" aria-hidden="true">
+				
+				<a href="/tag/Github Pages"><span class="label label-info">Github Pages</span></a>
+				
+				<a href="/tag/Jekyll Pure"><span class="label label-info">Jekyll Pure</span></a>
+				
+				<a href="/tag/Tag Generator"><span class="label label-info">Tag Generator</span></a>
+				
+				<a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
+				
+				<a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
+				
+				<a href="/tag/ONT"><span class="label label-info">ONT</span></a>
+				
+				<a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+				
+				<a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
+				
+				<a href="/tag/TFTP Server"><span class="label label-info">TFTP Server</span></a>
+				
+				<a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
+				
+				<a href="/tag/cc_flasher"><span class="label label-info">cc_flasher</span></a>
+				
+				<a href="/tag/CC2430"><span class="label label-info">CC2430</span></a>
+				
+				<a href="/tag/Macports"><span class="label label-info">Macports</span></a>
+				
+				<a href="/tag/WGR614v10"><span class="label label-info">WGR614v10</span></a>
+				
+				<a href="/tag/WNR1000v3"><span class="label label-info">WNR1000v3</span></a>
+				
+				<a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
+				
+			</hgroup>
+		</div>
+	</div>
+	<div class="content content-min-height">
+	<div class="pure-u-1">
+	<div class="post">
+		<h1 class="content-subhead">Read Post</h1>
+		<div class = "post-header">
+			<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+			<h2 class="post-title">WGR614v10 and WNR1000v3 Cross-Flashing Firmware Update - part 1</h2>
+			<p class="post-meta">
+				<span class="fa fa-calendar" aria-hidden="true"></span>
+				2015-05-14
+				<br>
+				<span class="fa fa-tag" aria-hidden="true"></span>
+				
+				<a href="/tag/WGR614v10"><span class="label label-info">WGR614v10</span></a>
+				
+				<a href="/tag/WNR1000v3"><span class="label label-info">WNR1000v3</span></a>
+				
+				<a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
+				
+				<a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+				
+				<a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
+				
+			</p>
+		</div>
+		<div class="post-description">
+		<p>Our SOHO DSL internet connection is pretty stable, PPPoE through Netgear WGR614v10, covering almost 200 square meters of the area with concrete walls. Everyone was happy, no connection dropping, until recently. I needed to share the internet connection over Wifi to another wireless router, but it didn't work no matter what. When I swapped both routers, it worked. But that is not the point. The point is, no matter what router installed as internet gateway, it should be able to share its internet connection. So I guess, it is time for this WGR614v10 to get a firmware upgrade.</p>
+
+<p><img class="img-responsive" src="/images/wgr614v10.jpg" /></p>
+
+<p>I wanted to flash WGR614v10 with OpenWrt. Unfortunately, it is not yet supported, maybe next time. But I found an intriguing blog posts, <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614.html">here</a> and <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614v10-part-2.html">here</a>, saying that WGR614v10 can be updated with WNR1000v3 firmware. Interesting! <!--more--> Both routers might have a similar configuration in order to make it work! Googling around for hardware comparison, it turned out that both routers look so identical. According to <a href="https://wikidevi.com/wiki/Netgear_WGR614v10">Wikidev WGR614v10</a> and <a href="https://wikidevi.com/wiki/Netgear_WNR1000v3">Wikidev WNR1000v3</a>, both have the same type of Broadcom chip. So, why WGR614v10 was marketed as Wireless-G and the latter as Wireless-N? Below are pictures showing board layout of WGR614v10(left) and WNR1000v3(right).</p>
+
+<p><img class="img-responsive" src="/images/teardown_wgr614v10_wnr1000v3.jpg" /></p>
+
+<p>What is more interesting about old Netgear routers, is that there is an unprotected backdoor telnet console. But it needs to be activated, which is described <a href="http://wiki.openwrt.org/toh/netgear/telnet.console">here</a> in detail. There are a lot of build platforms and versions for different Netgear routers, for mine I used this <a href="https://github.com/davejagoda/NetgearTelnetEnable">telnetenable</a>. We need telnet access to replace WGR614v10 board ID with the one of WNR1000v3. This is actually to fool WGR614v10 to think that it is WNR1000v3 to allow WNR1000v3 firmware upload. Below you may find commands over <code>telnet</code> to burn the board ID. Parameters for <code>telnetenable</code> is router's IP address, MAC address, username, and password. The <code>U12H139T00_NETGEAR</code> is WNR1000v3 board ID.</p>
+
+<pre><code>NetgearTelnetEnable nodino$./telnetenable 10.0.0.1 C03F0E56945C Gearguy Geardog
+
+NetgearTelnetEnable nodino$ telnet 10.0.0.1
+Trying 10.0.0.1...
+Connected to 10.0.0.1.
+Escape character is '^]'.
+
+BusyBox v0.60.0 (2010.07.24-08:33+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+
+# burnboardid U12H139T00_NETGEAR
+Board ID - U12H139T00_NETGEAR
+BurnBoardId OK
+# </code></pre>
+
+
+<p>Now that the hardware is faked to think that it is WNR1000v3, it is time to fire the web interface and update the firmware. <code>DO NOT UPDATE FIRMWARE OVER WIRELESS CONNECTION. DO IT THROUGH AN ETHERNET CABLE. DO IT AT YOUR OWN RISK! THERE IS NO WARRANTY THIS METHOD WILL WORK FOR YOU. YOU'VE BEEN WARNED!</code> Our Wifi router's address is <code>10.0.0.1</code>, yours might be different. Download WNR1000v3 firmware from <a href="http://downloadcenter.netgear.com/">Netgear Download Center</a>.</p>
+
+<p><img class="img-responsive" src="/images/wgr614v10_firmware_upload.jpg" /></p>
+
+<p><img class="img-responsive" src="/images/wgr614v10_router_upgrade.jpg" /></p>
+
+<p>Don't turn off the device until the process is done. Don't interrupt the upgrade process or you might brick your device. After it is done, voila! The new look of your WGR614v10 is now WNR1000v3!</p>
+
+<p><img class="img-responsive" src="/images/wgr614v10_upgraded_to_wnr1000v3.jpg" /></p>
+
+<p>Wait a minute! There is even more! It seems that there is a new firmware already from Netgear repository. Let's update it one more time. This the good thing of having WNR1003v3 firmware with longer support from Netgear. At least we need it until OpenWrt is fully supported on WGR614v10 or WNR1000v3.</p>
+
+<p><img class="img-responsive" src="/images/wnr1000v3_firmware_upgrade_available.jpg" />
+<img class="img-responsive" src="/images/wnr1000v3_downloading_new_firmware.jpg" />
+<img class="img-responsive" src="/images/wnr1000v3_upgrading_new_firmware.jpg" />
+<img class="img-responsive" src="/images/wnr1000v3_rebooting.jpg" /></p>
+
+<p>This is the final look of WNR1000v3 with nicer background and theme.</p>
+
+<p><img class="img-responsive" src="/images/wnr1000v3_latest_firmware.jpg" /></p>
+
+<p>Is there another way to do it without backdoor telnet? Let's say you have already upgraded your WGR614v10 with the latest firmware from Netgear Download Center, the backdoor access might not be there anymore. Fortunately, there is another way! Follow <a href="/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part2.html">Cross-Flashing Part 2</a> to see how.</p>
+
+		</div>
+	</div>
+</div>
+
+<div class="post">
+	
+	<a href='/2015/05/08/hg8245-internet-backdoor-remote-access.html'>← Prev</a>
+	
+	
+	<a href='/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part2.html'>Next →</a>
+	
+</div>
+
+
+	</div>
+	<div class="content">
+		<div class="pure-u-1">
+			<div class="footer">
+				<p><a href="/">&copy 2009-2015 AisenLink 艾森林</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

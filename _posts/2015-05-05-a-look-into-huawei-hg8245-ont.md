@@ -12,9 +12,9 @@ tags:
 
 I got an ONT router from China Telecom. It served well for SOHO internet connection back then in 2012. However, it has been collecting dust since I moved to a new place with no fiber optic internet. When things start to collect dust at one corner of my place, my curiosity quickly flies to pry it open and see if I could use it for something. At least I can see that it has one USB port on its side.
 
-<!--more-->
-
 <img class="img-responsive" src="/images/thumb_IMG_3657_1024.jpg" />
+
+<!--more-->
 
 Prying it open was easy. Note also that there are hidden screws underneath those two rubber legs close to the front part. The device is Huawei HG8245 rebranded as China Telecom ONT.
 

@@ -9,7 +9,9 @@ tags:
 - Wifi Router
 ---
 
-I managed to hook a USB to serial cable in [here](/2015/05/05/a-look-into-huawei-hg8245-ont.html) to get access to console. Then, I stumbled across a [blog post](http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html) explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.
+I managed to hook a USB to serial cable to HG8245 in [here](/2015/05/05/a-look-into-huawei-hg8245-ont.html) to get access to console. Then, I stumbled across a [blog post](http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html) explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.
+
+<img class="img-responsive" src="/images/hg8245_telecomadmin.jpg" />
 
 <!--more-->
 
@@ -41,6 +43,6 @@ What if we try <code>grep admin</code> keyword? This is what you will get:
 &lt;X_HW_ServiceManage FtpEnable="0" FtpUserName="root" FtpPassword="admin" FtpPort="21" FtpRoorDir="/mnt/usb1_1/" FtpUserNum="0"/&gt;
 WAP(Dopra Linux) # </code></pre>
 
-It turned out that this ONT has a built-in FTP server running, with default root directory at <code>/mnt/usb1_1</code>. If you hook up a USB storage on its USB port, this ONT can be used as a file server, that can be accessed from anywhere. Cool stuff! But there is a flaw in the system. The password cannot be changed!
+It turned out that this ONT has a built-in FTP server running, with default root directory at <code>/mnt/usb1_1</code>. If you hook up a USB storage on its USB port, this ONT can be used as a file server, that can be accessed from anywhere. Cool stuff! But there is a little flaw in this system. The password cannot be changed!
 
 Why don't you try to copy <code>hw_ctree.xml</code> to a USB flash and analyze it further? I bet you would find a lot more hidden stuff in there. Let me know if you find anything interesting.

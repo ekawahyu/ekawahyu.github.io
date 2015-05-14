@@ -53,6 +53,12 @@
 				
 				<a href="/tag/Macports"><span class="label label-info">Macports</span></a>
 				
+				<a href="/tag/WGR614v10"><span class="label label-info">WGR614v10</span></a>
+				
+				<a href="/tag/WNR1000v3"><span class="label label-info">WNR1000v3</span></a>
+				
+				<a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
+				
 			</hgroup>
 		</div>
 	</div>
@@ -60,6 +66,68 @@
 	<div class="pure-u-1">
     <div class="post">
         <h1 class="content-subhead">Recent Posts</h1>
+        
+        <div class="post">
+            <div class="post-header">
+                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+                <h2 class="post-title"><a href="/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part2.html">WGR614v10 and WNR1000v3 Cross-Flashing Firmware Update - part 2</a></h2>
+                <p class="post-meta">
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    2015-05-14
+                    <br>
+                    <span class="fa fa-tag" aria-hidden="true"></span>
+                    
+                    <a href="/tag/WGR614v10"><span class="label label-info">WGR614v10</span></a>
+                    
+                    <a href="/tag/WNR1000v3"><span class="label label-info">WNR1000v3</span></a>
+                    
+                    <a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
+                    
+                    <a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+                    
+                    <a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
+                    
+                </p>
+            </div>
+            <div class="post-description">
+            <p>You might want to read <a href="/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part1.html">Part 1</a> before continuing. If you reach this page, meaning that you don't have backdoor telnet available, or for some reason <code>telnetenable</code> doesn't work on your WGR614v10, or you want to experiment further with your router. There is possibility (not tested) that you can also flash WGR614v10 firmware onto WNR1000v3. You might be able to go back and forth between both firmware versions. Everything is possible, all you need to do is try!</p>
+
+<p><img class="img-responsive" src="/images/wgr614v10_wnr1000v3.jpg" /></p>
+
+
+            </div>
+        </div>
+        
+        <div class="post">
+            <div class="post-header">
+                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+                <h2 class="post-title"><a href="/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part1.html">WGR614v10 and WNR1000v3 Cross-Flashing Firmware Update - part 1</a></h2>
+                <p class="post-meta">
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    2015-05-14
+                    <br>
+                    <span class="fa fa-tag" aria-hidden="true"></span>
+                    
+                    <a href="/tag/WGR614v10"><span class="label label-info">WGR614v10</span></a>
+                    
+                    <a href="/tag/WNR1000v3"><span class="label label-info">WNR1000v3</span></a>
+                    
+                    <a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
+                    
+                    <a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+                    
+                    <a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
+                    
+                </p>
+            </div>
+            <div class="post-description">
+            <p>Our SOHO DSL internet connection is pretty stable, PPPoE through Netgear WGR614v10, covering almost 200 square meters of the area with concrete walls. Everyone was happy, no connection dropping, until recently. I needed to share the internet connection over Wifi to another wireless router, but it didn't work no matter what. When I swapped both routers, it worked. But that is not the point. The point is, no matter what router installed as internet gateway, it should be able to share its internet connection. So I guess, it is time for this WGR614v10 to get a firmware upgrade.</p>
+
+<p><img class="img-responsive" src="/images/wgr614v10.jpg" /></p>
+
+<p>I wanted to flash WGR614v10 with OpenWrt. Unfortunately, it is not yet supported, maybe next time. But I found an intriguing blog posts, <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614.html">here</a> and <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614v10-part-2.html">here</a>, saying that WGR614v10 can be updated with WNR1000v3 firmware. Interesting! 
+            </div>
+        </div>
         
         <div class="post">
             <div class="post-header">
@@ -111,7 +179,9 @@
                 </p>
             </div>
             <div class="post-description">
-            <p>I managed to hook a USB to serial cable in <a href="/2015/05/05/a-look-into-huawei-hg8245-ont.html">here</a> to get access to console. Then, I stumbled across a <a href="http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html">blog post</a> explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.</p>
+            <p>I managed to hook a USB to serial cable to HG8245 in <a href="/2015/05/05/a-look-into-huawei-hg8245-ont.html">here</a> to get access to console. Then, I stumbled across a <a href="http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html">blog post</a> explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.</p>
+
+<p><img class="img-responsive" src="/images/hg8245_telecomadmin.jpg" /></p>
 
 
             </div>
@@ -138,61 +208,9 @@
                 </p>
             </div>
             <div class="post-description">
-            <p>I have been working with TI CC2530 lately with Contiki OS. Since I don't work on Windows environment, <a href="https://github.com/dashesy/cc-tool">cc-tool</a> is my tool to flash CC2530 binary. It should work for TI CC2430 as well, but for some reason it does not flash the chip properly. So, I remembered there was another open source tool I used to program CC2430. It was called <a href="http://sourceforge.net/projects/ccflasher/">cc_flasher</a>. Unfortunately. the project seems to be abandoned by now. I just wanted to share what I did to make it build on OS X Yosemite in <a href="https://github.com/ekawahyu/cc_flasher">here</a>.</p>
+            <p>I have been working with TI CC2530 lately with Contiki OS. Since I don't work on Windows environment, <a href="https://github.com/dashesy/cc-tool">cc-tool</a> is my tool to flash CC2530 binary. It should work for TI CC2430 as well, but for some reason it does not flash the chip properly. So, I remembered there was another open source tool I used to program CC2430 with. It was called <a href="http://sourceforge.net/projects/ccflasher/">cc_flasher</a>. Unfortunately, the project seems to be abandoned by now. I just wanted to share what I did to make it build on OS X Yosemite in <a href="https://github.com/ekawahyu/cc_flasher">here</a>.</p>
 
-
-            </div>
-        </div>
-        
-        <div class="post">
-            <div class="post-header">
-                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-                <h2 class="post-title"><a href="/2015/05/06/enabling-tftp-server-os-x.html">Enabling TFTP Server on Mac OS X Yosemite</a></h2>
-                <p class="post-meta">
-                    <span class="fa fa-calendar" aria-hidden="true"></span>
-                    2015-05-06
-                    <br>
-                    <span class="fa fa-tag" aria-hidden="true"></span>
-                    
-                    <a href="/tag/TFTP Server"><span class="label label-info">TFTP Server</span></a>
-                    
-                    <a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
-                    
-                </p>
-            </div>
-            <div class="post-description">
-            <p>Based on article posted by mlc: <a href="http://hints.macworld.com/article.php?story=20070218233806794">http://hints.macworld.com/article.php?story=20070218233806794</a></p>
-
-<p>Many network devices are able to upload and download firmware and configurations via the TFTP protocol. Intel based Mac OS X comes with tftpd preinstalled. On OS X Server, tftpd service is running, but on standard OS X, it is disabled by default. However, it can be activated. In order to activate a service, you have to be administrator with <code>sudo</code> privilege.</p>
-
-
-            </div>
-        </div>
-        
-        <div class="post">
-            <div class="post-header">
-                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-                <h2 class="post-title"><a href="/2015/05/05/a-look-into-huawei-hg8245-ont.html">A Look Into Huawei HG8245 ONT Wifi Router</a></h2>
-                <p class="post-meta">
-                    <span class="fa fa-calendar" aria-hidden="true"></span>
-                    2015-05-05
-                    <br>
-                    <span class="fa fa-tag" aria-hidden="true"></span>
-                    
-                    <a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
-                    
-                    <a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
-                    
-                    <a href="/tag/ONT"><span class="label label-info">ONT</span></a>
-                    
-                    <a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
-                    
-                    <a href="/tag/OpenWrt"><span class="label label-info">OpenWrt</span></a>
-                    
-                </p>
-            </div>
-            <div class="post-description">
-            <p>I got an ONT router from China Telecom. It served well for SOHO internet connection back then in 2012. However, it has been collecting dust since I moved to a new place with no fiber optic internet. When things start to collect dust at one corner of my place, my curiosity quickly flies to pry it open and see if I could use it for something. At least I can see that it has one USB port on its side.</p>
+<p><img class="img-responsive" src="/images/thumb_IMG_3665_1024.jpg" /></p>
 
 
             </div>
