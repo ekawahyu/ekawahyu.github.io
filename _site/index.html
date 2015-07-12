@@ -59,6 +59,16 @@
 				
 				<a href="/tag/Netgear"><span class="label label-info">Netgear</span></a>
 				
+				<a href="/tag/Nuvoton"><span class="label label-info">Nuvoton</span></a>
+				
+				<a href="/tag/Nano130"><span class="label label-info">Nano130</span></a>
+				
+				<a href="/tag/Keil"><span class="label label-info">Keil</span></a>
+				
+				<a href="/tag/Nu-Link"><span class="label label-info">Nu-Link</span></a>
+				
+				<a href="/tag/Virtualbox"><span class="label label-info">Virtualbox</span></a>
+				
 			</hgroup>
 		</div>
 	</div>
@@ -66,6 +76,66 @@
 	<div class="pure-u-1">
     <div class="post">
         <h1 class="content-subhead">Recent Posts</h1>
+        
+        <div class="post">
+            <div class="post-header">
+                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+                <h2 class="post-title"><a href="/2015/07/12/nuvoton-nulink-firmware-update-virtualbox.html">Nu-Link Firmware Update under Virtualbox</a></h2>
+                <p class="post-meta">
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    2015-07-12
+                    <br>
+                    <span class="fa fa-tag" aria-hidden="true"></span>
+                    
+                    <a href="/tag/Nuvoton"><span class="label label-info">Nuvoton</span></a>
+                    
+                    <a href="/tag/Nu-Link"><span class="label label-info">Nu-Link</span></a>
+                    
+                    <a href="/tag/Nano130"><span class="label label-info">Nano130</span></a>
+                    
+                    <a href="/tag/Keil"><span class="label label-info">Keil</span></a>
+                    
+                    <a href="/tag/Virtualbox"><span class="label label-info">Virtualbox</span></a>
+                    
+                    <a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
+                    
+                </p>
+            </div>
+            <div class="post-description">
+            <p>I ran into a minor issue when trying to program NuTiny-EVB-Nano130 on Mac OS X. I don't use native Windows on my machine, so Virtualbox is the only way to run Keil on it. The very first time I plugged in NuTiny-EVB-Nano130 into the USB port, I could not plug the ICE debugger as Virtualbox's USB device. AppleUSBCDC seemed holding and enumerated the board on the host, so it was grayed out on guest OS. The solution was to put device filter on Virtualbox (details follow).</p>
+
+<p><img class="img-responsive" src="/images/nulink_virtualbox.jpg" /></p>
+
+
+            </div>
+        </div>
+        
+        <div class="post">
+            <div class="post-header">
+                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+                <h2 class="post-title"><a href="/2015/07/11/nuvoton-nutiny-evb-nano130-keil.html">Nuvoton NuTiny-EVB-Nano130 Keil Setup</a></h2>
+                <p class="post-meta">
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    2015-07-11
+                    <br>
+                    <span class="fa fa-tag" aria-hidden="true"></span>
+                    
+                    <a href="/tag/Nuvoton"><span class="label label-info">Nuvoton</span></a>
+                    
+                    <a href="/tag/Nano130"><span class="label label-info">Nano130</span></a>
+                    
+                    <a href="/tag/Keil"><span class="label label-info">Keil</span></a>
+                    
+                </p>
+            </div>
+            <div class="post-description">
+            <p>I just got a Nuvoton <a href="http://www.nuvoton.com/hq/products/microcontrollers/arm-cortex-m0-mcus/nano130-advanced-series">NuTiny-EVB-Nano130</a> powered by the ARM Cortex-M0 core runs up to 42 MHz. The Nano130 series on-board (NANO130KE3BN) integrates LCD Controller 4x40 &amp; 6x38 COM/SEG, USB 2.0 FS, Real Time Counter (RTC) , 12-bit SAR ADC, 12-bit DAC, UART, SPI, I²C, I²S, PWM/Capture, ISO-7816-3, Watchdog Timer, Brown-out Detector, and fast wake-up via many interfaces, and supports 96-bit Unique ID and 128-bit Unique Customer ID. I wanted to get my hands on it quickly, so I decided to try it with Keil <code>LCD_Demo</code> project example.</p>
+
+<p><img class="img-responsive" src="/images/nutiny_sdk_nano130.jpg" /></p>
+
+
+            </div>
+        </div>
         
         <div class="post">
             <div class="post-header">
@@ -153,64 +223,6 @@
             <p>Hackers are very unlikely to break in to SOHO network from serial port, like in <a href="/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">this post</a>. This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.</p>
 
 <p>The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.</p>
-
-
-            </div>
-        </div>
-        
-        <div class="post">
-            <div class="post-header">
-                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-                <h2 class="post-title"><a href="/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">HG8245 - Root Password to Reveal Hidden Menu</a></h2>
-                <p class="post-meta">
-                    <span class="fa fa-calendar" aria-hidden="true"></span>
-                    2015-05-07
-                    <br>
-                    <span class="fa fa-tag" aria-hidden="true"></span>
-                    
-                    <a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
-                    
-                    <a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
-                    
-                    <a href="/tag/ONT"><span class="label label-info">ONT</span></a>
-                    
-                    <a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
-                    
-                </p>
-            </div>
-            <div class="post-description">
-            <p>I managed to hook a USB to serial cable to HG8245 in <a href="/2015/05/05/a-look-into-huawei-hg8245-ont.html">here</a> to get access to console. Then, I stumbled across a <a href="http://www.cnblogs.com/craftor/archive/2012/10/25/2740130.html">blog post</a> explaining how to gain root access. This access to root can be used to revealed a hidden menu within the web interface.</p>
-
-<p><img class="img-responsive" src="/images/hg8245_telecomadmin.jpg" /></p>
-
-
-            </div>
-        </div>
-        
-        <div class="post">
-            <div class="post-header">
-                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-                <h2 class="post-title"><a href="/2015/05/07/cc-flasher-osx-yosemite.html">Building cc_flasher on Mac OS X Yosemite</a></h2>
-                <p class="post-meta">
-                    <span class="fa fa-calendar" aria-hidden="true"></span>
-                    2015-05-07
-                    <br>
-                    <span class="fa fa-tag" aria-hidden="true"></span>
-                    
-                    <a href="/tag/cc_flasher"><span class="label label-info">cc_flasher</span></a>
-                    
-                    <a href="/tag/CC2430"><span class="label label-info">CC2430</span></a>
-                    
-                    <a href="/tag/Macports"><span class="label label-info">Macports</span></a>
-                    
-                    <a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
-                    
-                </p>
-            </div>
-            <div class="post-description">
-            <p>I have been working with TI CC2530 lately with Contiki OS. Since I don't work on Windows environment, <a href="https://github.com/dashesy/cc-tool">cc-tool</a> is my tool to flash CC2530 binary. It should work for TI CC2430 as well, but for some reason it does not flash the chip properly. So, I remembered there was another open source tool I used to program CC2430 with. It was called <a href="http://sourceforge.net/projects/ccflasher/">cc_flasher</a>. Unfortunately, the project seems to be abandoned by now. I just wanted to share what I did to make it build on OS X Yosemite in <a href="https://github.com/ekawahyu/cc_flasher">here</a>.</p>
-
-<p><img class="img-responsive" src="/images/thumb_IMG_3665_1024.jpg" /></p>
 
 
             </div>
