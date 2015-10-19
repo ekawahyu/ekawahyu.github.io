@@ -69,6 +69,10 @@
 				
 				<a href="/tag/Virtualbox"><span class="label label-info">Virtualbox</span></a>
 				
+				<a href="/tag/OpenWRT"><span class="label label-info">OpenWRT</span></a>
+				
+				<a href="/tag/OSXFuse"><span class="label label-info">OSXFuse</span></a>
+				
 			</hgroup>
 		</div>
 	</div>
@@ -76,6 +80,35 @@
 	<div class="pure-u-1">
 	<div class="post">
 		<h1 class="content-subhead">All Posts</h1>
+		
+		<div class="post">
+			<div class="post-header">
+				<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+				<h2 class="post-title"><a href="/2015/05/08/hg8245-internet-backdoor-remote-access.html">HG8245 - Internet Backdoor and Remote Access</a></h2>
+				<p class="post-meta">
+					<span class="fa fa-calendar" aria-hidden="true"></span>
+					2015-05-08
+					<br>
+					<span class="fa fa-tag" aria-hidden="true"></span>
+					
+					<a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
+					
+					<a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
+					
+					<a href="/tag/ONT"><span class="label label-info">ONT</span></a>
+					
+					<a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+					
+				</p>
+			</div>
+			<div class="post-description">
+			<p>Hackers are very unlikely to break in to SOHO network from serial port, like in <a href="/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">this post</a>. This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.</p>
+
+<p>The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.</p>
+
+
+			</div>
+		</div>
 		
 		<div class="post">
 			<div class="post-header">
@@ -186,31 +219,6 @@
 			<p>I got an ONT router from China Telecom. It served well for SOHO internet connection back then in 2012. However, it has been collecting dust since I moved to a new place with no fiber optic internet. When things start to collect dust at one corner of my place, my curiosity quickly flies to pry it open and see if I could use it for something. At least I can see that it has one USB port on its side.</p>
 
 <p><img class="img-responsive" src="/images/thumb_IMG_3657_1024.jpg" /></p>
-
-
-			</div>
-		</div>
-		
-		<div class="post">
-			<div class="post-header">
-				<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-				<h2 class="post-title"><a href="/2015/05/04/jekyll-tag-generator-workaround.html">Jekyll Tag Generator Workaround on Github Pages</a></h2>
-				<p class="post-meta">
-					<span class="fa fa-calendar" aria-hidden="true"></span>
-					2015-05-04
-					<br>
-					<span class="fa fa-tag" aria-hidden="true"></span>
-					
-					<a href="/tag/Github Pages"><span class="label label-info">Github Pages</span></a>
-					
-					<a href="/tag/Jekyll Pure"><span class="label label-info">Jekyll Pure</span></a>
-					
-					<a href="/tag/Tag Generator"><span class="label label-info">Tag Generator</span></a>
-					
-				</p>
-			</div>
-			<div class="post-description">
-			<p>A few years back, I used <a href="http://jekyllbootstrap.com/">Jekyll-Bootstrap</a> to generate static pages. It was awesome because I could modify it to generate static pages for blog and company profile together. However, when I pushed my changes to <a href="https://pages.github.com/">Github Pages</a>, pages aggregating post tags did not show up. It turned out that Github Pages does not execute <code>tag_gen.rb</code> under <code>_plugins</code> folder, as explained by <a href="http://charliepark.org/tag/jekyll/">Charlie Park</a>.</p>
 
 
 			</div>

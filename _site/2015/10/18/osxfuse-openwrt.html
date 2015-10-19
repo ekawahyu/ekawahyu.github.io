@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>AisenLink - HG8245 - Internet Backdoor and Remote Access</title>
+	<title>AisenLink - Accessing OpenWRT Filesystem as a Remote Drive with OSXFUSE</title>
 	
 	<link rel="stylesheet" href="/css/pure-min.css">
 	<link rel="stylesheet" href="/css/blog.css">
@@ -82,76 +82,41 @@
 		<h1 class="content-subhead">Read Post</h1>
 		<div class = "post-header">
 			<!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-			<h2 class="post-title">HG8245 - Internet Backdoor and Remote Access</h2>
+			<h2 class="post-title">Accessing OpenWRT Filesystem as a Remote Drive with OSXFUSE</h2>
 			<p class="post-meta">
 				<span class="fa fa-calendar" aria-hidden="true"></span>
-				2015-05-08
+				2015-10-18
 				<br>
 				<span class="fa fa-tag" aria-hidden="true"></span>
 				
-				<a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
+				<a href="/tag/OpenWRT"><span class="label label-info">OpenWRT</span></a>
 				
-				<a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
+				<a href="/tag/OSXFuse"><span class="label label-info">OSXFuse</span></a>
 				
-				<a href="/tag/ONT"><span class="label label-info">ONT</span></a>
-				
-				<a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
+				<a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
 				
 			</p>
 		</div>
 		<div class="post-description">
-		<p>Hackers are very unlikely to break in to SOHO network from serial port, like in <a href="/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">this post</a>. This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.</p>
+		<p><a href="http://www.openwrt.org">OpenWRT</a> is an open source wireless router software based-on Linux system. As with the rest of other Unix systems, it supports ext2/3/4 file system. Transferring files between different file system is not an issue as long as an SFTP server is installed on OpenWRT and SFTP client is installed on your desktop computer. However, recently, I found a better way to drag-n-drop or copy-n-paste files on the OpenWRT file system mounted as a remote drive on my Mac through OSXFUSE and SSHFS. Read on if you want to know how to do it. This guide should also work on any Linux/Unix other than OpenWRT.</p>
 
-<p>The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.</p>
+<p><img class="img-responsive" src="/images/osxfuse-openwrt.jpg" /></p>
 
 <!--more-->
 
 
+<p>FUSE for OS X allows you to extend OS X's native file handling capabilities via third-party file systems. OSXFUSE is a successor to <a href="https://code.google.com/p/macfuse/">MacFUSE</a>, which has been used as a software building block by dozens of products, but is no longer being maintained. In more technical terms, OSXFUSE implements a mechanism that makes it possible to implement a fully functional file system in a user-space program on OS X. It provides multiple APIs, one of which is a superset of the FUSE API (file system in user space) that originated on Linux. Therefore, many existing FUSE file systems become readily usable on OS X. OSXFUSE can be downloaded from <a href="http://sourceforge.net/projects/osxfuse/files/">here</a>.</p>
+
+<p>SSHFS (SSH Filesystem) is a filesystem client to mount and interact with directories and files located on a remote server or workstation over a normal ssh connection. The client interacts with the remote file system via the SSH File Transfer Protocol (SFTP), a network protocol providing file access, file transfer, and file management functionality over any reliable data stream that was designed as an extension of the Secure Shell protocol (SSH) version 2.0. You can download SSHFS for Mac OS X from <a href="https://github.com/osxfuse/sshfs/releases">here</a>. If you don't like to use Terminal to login to remote drives, you might also want to download the GUI from <a href="https://code.google.com/p/sshfs-gui/">here</a> or <a href="https://adamstech.wordpress.com/2014/05/10/how-to-mount-an-ssh-location-using-a-gui-on-mac-os-x-10-9/">here</a>.</p>
+
+<p>Alternatively, if you have Macports installed, you can do <code>sudo macport install osxfuse sshfs sshfs-gui</code>. This will install OSXFUSE and SSHFS version of Macports and also a simple GUI. To mount a remote drive, do these from Terminal app:</p>
+
+<pre><code>mkdir /path/to/mountpoint
+sshfs username@server:/path/to/remote/location /path/to/mountpoint
+</code></pre>
 
 
-<pre><code>telnet 192.168.1.1
-Trying 192.168.1.1...
-Connected to 192.168.1.1.
-Escape character is '^]'.
-
-Welcome Visiting Huawei Home Gateway
-Copyright by Huawei Technologies Co., Ltd.
-
-Login:root
-Password:*****
-WAP>shell
-
-BusyBox v1.4.1 (2011-07-29 10:25:20 HKT) Built-in shell (ash)
-Enter 'help' for a list of built-in commands.
-
-WAP(Dopra Linux) # grep telecomadmin /mnt/jffs2/hw_ctree.xml
-&lt;X_HW_WebUserInfoInstance InstanceID="2" UserName="telecomadmin" Password="nE7jA%5m" UserLevel="0" Enable="1"/&gt;
-WAP(Dopra Linux) # </code></pre>
-
-
-<p>Alright... alright... probably because it is wired directly to LAN. What about telnetting from the internet? First, connect the HG8245 to your ISP provider and find its IP address. Then telnetting...</p>
-
-<pre><code>telnet 183.x.x.x
-Trying 183.x.x.x...
-Connected to 183.x.x.x.
-Escape character is '^]'.
-
-Welcome Visiting Huawei Home Gateway
-Copyright by Huawei Technologies Co., Ltd.
-
-Login:root
-Password:*****
-WAP>shell
-
-BusyBox v1.4.1 (2011-07-29 10:25:20 HKT) Built-in shell (ash)
-Enter 'help' for a list of built-in commands.
-
-WAP(Dopra Linux) # grep telecomadmin /mnt/jffs2/hw_ctree.xml
-&lt;X_HW_WebUserInfoInstance InstanceID="2" UserName="telecomadmin" Password="nE7jA%5m" UserLevel="0" Enable="1"/&gt;
-WAP(Dopra Linux) # </code></pre>
-
-
-<p>Unbelievable! Super scary! Too easy to break in! Anyone owns one of this ONT should try to upgrade to the latest firmware. Better yet, install OpenWrt!</p>
+<p>Mounting point can be anywhere, but I do love to follow the convention where every mounted drive on OS X stays under <code>/Volumes</code>. Everytime remote drive is ejected/unmounted, the mount point <code>/path/to/mountpoint</code> has to be recreated the next time you want to work with it. If you use sshfs-gui, it will help you create temporary mount point automatically. That's all folks. Hope this post useful for you all!</p>
 
 		</div>
 	</div>
@@ -159,10 +124,8 @@ WAP(Dopra Linux) # </code></pre>
 
 <div class="post">
 	
-	<a href='/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html'>← Prev</a>
+	<a href='/2015/07/12/nuvoton-nulink-firmware-update-virtualbox.html'>← Prev</a>
 	
-	
-	<a href='/2015/05/14/wgr614v10-wnr1000v3-cross-flashing-part1.html'>Next →</a>
 	
 </div>
 

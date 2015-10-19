@@ -69,6 +69,10 @@
 				
 				<a href="/tag/Virtualbox"><span class="label label-info">Virtualbox</span></a>
 				
+				<a href="/tag/OpenWRT"><span class="label label-info">OpenWRT</span></a>
+				
+				<a href="/tag/OSXFuse"><span class="label label-info">OSXFuse</span></a>
+				
 			</hgroup>
 		</div>
 	</div>
@@ -76,6 +80,33 @@
 	<div class="pure-u-1">
     <div class="post">
         <h1 class="content-subhead">Recent Posts</h1>
+        
+        <div class="post">
+            <div class="post-header">
+                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
+                <h2 class="post-title"><a href="/2015/10/18/osxfuse-openwrt.html">Accessing OpenWRT Filesystem as a Remote Drive with OSXFUSE</a></h2>
+                <p class="post-meta">
+                    <span class="fa fa-calendar" aria-hidden="true"></span>
+                    2015-10-18
+                    <br>
+                    <span class="fa fa-tag" aria-hidden="true"></span>
+                    
+                    <a href="/tag/OpenWRT"><span class="label label-info">OpenWRT</span></a>
+                    
+                    <a href="/tag/OSXFuse"><span class="label label-info">OSXFuse</span></a>
+                    
+                    <a href="/tag/Mac OS X"><span class="label label-info">Mac OS X</span></a>
+                    
+                </p>
+            </div>
+            <div class="post-description">
+            <p><a href="http://www.openwrt.org">OpenWRT</a> is an open source wireless router software based-on Linux system. As with the rest of other Unix systems, it supports ext2/3/4 file system. Transferring files between different file system is not an issue as long as an SFTP server is installed on OpenWRT and SFTP client is installed on your desktop computer. However, recently, I found a better way to drag-n-drop or copy-n-paste files on the OpenWRT file system mounted as a remote drive on my Mac through OSXFUSE and SSHFS. Read on if you want to know how to do it. This guide should also work on any Linux/Unix other than OpenWRT.</p>
+
+<p><img class="img-responsive" src="/images/osxfuse-openwrt.jpg" /></p>
+
+
+            </div>
+        </div>
         
         <div class="post">
             <div class="post-header">
@@ -196,35 +227,6 @@
 <p><img class="img-responsive" src="/images/wgr614v10.jpg" /></p>
 
 <p>I wanted to flash WGR614v10 with OpenWrt. Unfortunately, it is not yet supported, maybe next time. But I found an intriguing blog posts, <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614.html">here</a> and <a href="http://lukewarmlogic.blogspot.com/2010/06/hacking-wgr614v10-part-2.html">here</a>, saying that WGR614v10 can be updated with WNR1000v3 firmware. Interesting! 
-            </div>
-        </div>
-        
-        <div class="post">
-            <div class="post-header">
-                <!--<img class="post-avatar" height="48" width="48" src="/avatar/eka.jpg" />-->
-                <h2 class="post-title"><a href="/2015/05/08/hg8245-internet-backdoor-remote-access.html">HG8245 - Internet Backdoor and Remote Access</a></h2>
-                <p class="post-meta">
-                    <span class="fa fa-calendar" aria-hidden="true"></span>
-                    2015-05-08
-                    <br>
-                    <span class="fa fa-tag" aria-hidden="true"></span>
-                    
-                    <a href="/tag/HG8245"><span class="label label-info">HG8245</span></a>
-                    
-                    <a href="/tag/Huawei"><span class="label label-info">Huawei</span></a>
-                    
-                    <a href="/tag/ONT"><span class="label label-info">ONT</span></a>
-                    
-                    <a href="/tag/Wifi Router"><span class="label label-info">Wifi Router</span></a>
-                    
-                </p>
-            </div>
-            <div class="post-description">
-            <p>Hackers are very unlikely to break in to SOHO network from serial port, like in <a href="/2015/05/07/hg8245-root-password-to-reveal-hidden-menu.html">this post</a>. This post is showing you that HG8245 can be exploited to get root access from the internet. The root password is permanently stored in the flash ROM and cannot be changed.</p>
-
-<p>The setup was very easy. One computer was connected to HG8245 through a LAN cable. Then I ran telnet and use root:admin access. Voila, connection was established! The next commmand was easy, call the <code>shell</code>.</p>
-
-
             </div>
         </div>
         
