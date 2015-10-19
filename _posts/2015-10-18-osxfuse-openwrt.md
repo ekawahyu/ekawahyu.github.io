@@ -4,7 +4,7 @@ title:  Accessing OpenWRT Filesystem as a Remote Drive with OSXFUSE
 author: eka
 tags:
 - OpenWrt
-- OSXFuse
+- OSXFUSE
 - Mac OS X
 ---
 
