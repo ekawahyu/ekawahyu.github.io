@@ -1,6 +1,5 @@
 name: AisenLink
-markdown: rdiscount
-pygments: true
+markdown: kramdown
 permalink: /:year/:month/:day/:title.html
 
 paginate: 5
